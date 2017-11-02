@@ -26,6 +26,23 @@ labels, features = targetFeatureSplit(data)
 
 
 
-### your code goes here 
+### your code goes here
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.cross_validation import train_test_split
+labels_train, labels_test, features_train, features_test = train_test_split(labels, features, test_size=0.3, random_state=42)
 
+clf = DecisionTreeClassifier()
+clf.fit(features, labels)
+print 'POI true positive:', sum(labels * clf.predict(features))
+
+clf.fit(features_train, labels_train)
+print clf.score(features_test, labels_test)
+pred = clf.predict(features_test)
+print sum([item for item in pred if item == 1])
+print 'POI true positive:', sum(labels_test * pred)
+
+from sklearn.metrics import accuracy_score
+import numpy
+preds_0 = numpy.linspace(0, 0, len(features_test))
+print accuracy_score(labels_test, preds_0)
 
