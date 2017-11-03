@@ -20,3 +20,24 @@ import pickle
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
 
+print 'Persons count:', len(enron_data)
+print enron_data['METTS MARK']
+print 'Attributes count:', len(enron_data['METTS MARK'])
+
+print 'POI:', sum([enron_data[key]['poi'] for key in enron_data if enron_data[key]['poi'] == 1])
+
+print enron_data['PRENTICE JAMES']['total_stock_value']
+print enron_data['COLWELL WESLEY']['from_this_person_to_poi']
+print enron_data['SKILLING JEFFREY K']['exercised_stock_options']
+
+print 'Lay:', enron_data['LAY KENNETH L']['total_payments']
+print 'Skilling:', enron_data['SKILLING JEFFREY K']['total_payments']
+print 'Fastow:', enron_data['FASTOW ANDREW S']['total_payments']
+
+print len([enron_data[key] for key in enron_data if enron_data[key]['salary'] != 'NaN'])
+print len([enron_data[key] for key in enron_data if enron_data[key]['email_address'] != 'NaN'])
+
+print len([enron_data[key] for key in enron_data if enron_data[key]['total_payments'] == 'NaN'])
+print len(enron_data)
+print len([enron_data[key] for key in enron_data if enron_data[key]['total_payments'] == 'NaN' and enron_data[key]['poi'] == True])
+print len([enron_data[key] for key in enron_data if enron_data[key]['poi'] == True])

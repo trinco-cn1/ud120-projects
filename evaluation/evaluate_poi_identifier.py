@@ -46,3 +46,12 @@ import numpy
 preds_0 = numpy.linspace(0, 0, len(features_test))
 print accuracy_score(labels_test, preds_0)
 
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+print 'precision score:', precision_score(labels_test, pred)
+print 'recall score:', recall_score(labels_test, pred)
+
+predx = [0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1]
+realx = [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0]
+
+print precision_score(realx, predx)
